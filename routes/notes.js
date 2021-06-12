@@ -4,6 +4,7 @@ const {handleNoteParam} = require("../middlewares/noteMiddleware")
 const {verifyToken} = require("../middlewares/authmiddleware");
 const router = express.Router();
 
+app.use(cors());
 
 router.param("noteId", handleNoteParam);    
 
