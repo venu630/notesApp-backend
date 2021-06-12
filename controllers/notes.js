@@ -59,7 +59,6 @@ exports.updateNote = (req, res) => {
 
 exports.deleteNote = (req, res) => {
     const noteId = req.noteId;
-    const {heading, content} = req.body;
 
     client.query(`DELETE FROM notes WHERE noteid = '${noteId}';`
     )
