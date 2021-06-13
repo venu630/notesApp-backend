@@ -1,7 +1,6 @@
 const jwt = require("jsonwebtoken");
 const client = require("../configs/db");
-const cors = require("cors");
-app.use(cors());
+
 
 exports.verifyToken = (req, res, next) => {
     const token = req.headers.authorization;

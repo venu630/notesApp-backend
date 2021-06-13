@@ -1,6 +1,5 @@
 const client = require('../configs/db');
-const cors = require("cors");
-app.use(cors());
+
 
 exports.addNote = (req, res) =>{
     const {heading, content} = req.body;
