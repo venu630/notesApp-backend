@@ -56,6 +56,33 @@ exports.updateNote = (req, res) => {
 
 };
 
+exports.getANote = (req, res) => {
+    const noteId = req.noteId;
+
+    client.query(`SELECT * FROM notes WHERE noteid = '${noteId}';`
+    )
+    .then((data) => {
+        const noteData = data.rows;
+        const filteredData = noteData.map((note) => {
+            return{
+                noteId: note.noteid,
+                heading: note.heading,
+                content: note.content,
+            };
+        });
+
+        res.status(200).json({ 
+            message: "success",
+            data: filteredData,
+        });
+
+    })
+    .catch((err) => {
+        res.status(400).json({ message: "DB error"});
+    });
+
+};
+
 
 
 exports.deleteNote = (req, res) => {
